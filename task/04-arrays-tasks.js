@@ -285,7 +285,12 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-    throw new Error('Not implemented');
+    let newArr = [];
+    arr.map(function (val, index) {
+        newArr = newArr.concat(new Array(index + 1).fill(val));
+    });
+
+    return newArr;
 }
 
 
@@ -616,7 +621,12 @@ function getElementByIndexes(arr, indexes) {
  * 
  */
 function swapHeadAndTail(arr) {
-    throw new Error('Not implemented');
+    if (arr.length <= 1)
+        return arr;
+    if (arr.length % 2)
+        return arr.slice(arr.length / 2 + 1).concat(arr[(arr.length + 1) / 2 - 1], arr.slice(0, arr.length / 2));
+    else
+        return arr.slice(arr.length / 2).concat(arr.slice(0, arr.length / 2));
 }
 
 
